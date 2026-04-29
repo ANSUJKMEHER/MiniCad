@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniCAD Web Engine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar for Inputs -->
+        <aside class="sidebar glass-panel">
+            <h1 class="brand">MiniCAD <span>Engine</span></h1>
+            <p class="subtitle">Powered by C++ & WebAssembly</p>
+            
+            <div class="control-group">
+                <h3>Create Geometry</h3>
+                
+                <div class="input-card">
+                    <h4>Add Line</h4>
+                    <div class="inputs-row">
+                        <input type="number" id="l-x1" placeholder="X1" value="100">
+                        <input type="number" id="l-y1" placeholder="Y1" value="100">
+                    </div>
+                    <div class="inputs-row">
+                        <input type="number" id="l-x2" placeholder="X2" value="500">
+                        <input type="number" id="l-y2" placeholder="Y2" value="400">
+                    </div>
+                    <button class="btn-primary" onclick="addLine()">+ Add Line</button>
+                </div>
+
+                <div class="input-card">
+                    <h4>Add Circle</h4>
+                    <div class="inputs-row">
+                        <input type="number" id="c-cx" placeholder="CX" value="300">
+                        <input type="number" id="c-cy" placeholder="CY" value="300">
+                    </div>
+                    <div class="inputs-row">
+                        <input type="number" id="c-r" placeholder="Radius" value="150">
+                    </div>
+                    <button class="btn-secondary" onclick="addCircle()">+ Add Circle</button>
+                </div>
+            </div>
+
+            <button class="btn-action" onclick="renderGeometry()">Render & Calculate Intersections</button>
+        </aside>
+
+        <!-- Main Display Area -->
+        <main class="viewer-area">
+            <div class="viewer-header">
+                <h2>Live SVG Rendering</h2>
+                <div class="status-indicator" id="status"><span class="dot"></span> Backend Idle</div>
+            </div>
+            
+            <div class="canvas-wrapper glass-panel" id="canvas-container">
+                <!-- SVG Output will be injected here -->
+                <div class="placeholder">Click Render to generate geometry from C++ backend</div>
+            </div>
+            
+            <div class="logs-panel glass-panel">
+                <h3>Operation Logs</h3>
+                <ul id="logs-list">
+                    <li>System initialized. Ready for geometry.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

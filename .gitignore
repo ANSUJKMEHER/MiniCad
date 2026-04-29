@@ -1,0 +1,30 @@
+# Build directories
+build/
+bin/
+lib/
+obj/
+
+# Executables
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+
+# Editor / IDE
+.vscode/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+CMakeLists.txt.user
+
+# Object files
+*.o
+*.obj
+
+# Temporary files
+temp_output.svg
+output.svg
